@@ -1,0 +1,27 @@
+from body.speak import speak
+import spotipy
+import webbrowser
+from body.listen import Listen
+username = 'music'
+clientID = 'e13187ed828c42ff90b7915e9159815f'
+clientSecret = '83fc70e574a74a0f9e67b7c9fe327ed3'
+redirect_uri = 'http://google.com/'
+oauth_object = spotipy.SpotifyOAuth(clientID, clientSecret, redirect_uri)
+token_dict = oauth_object.get_access_token()
+token = token_dict['access_token']
+spotifyObject = spotipy.Spotify(auth=token)
+user_name = spotifyObject.current_user()
+
+
+def playmusic():
+    speak("which song do you want to play ? :")
+    print("which song do you want to play ? :")
+    text = Listen().lower()
+    search_song = text
+    speak("playing" + search_song + "on spotify")
+    results = spotifyObject.search(search_song, 1, 0, "track")
+    songs_dict = results['tracks']
+    song_items = songs_dict['items']
+    song = song_items[0]['external_urls']['spotify']
+    webbrowser.open(song)
+
