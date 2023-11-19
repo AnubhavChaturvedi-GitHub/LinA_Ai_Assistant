@@ -11,7 +11,7 @@ def get_nasa_report():
     url = "https://api.nasa.gov/planetary/apod"
 
     # API key
-    api_key = "tQm3v64hWonaigY9Ked0xROFLxqG5hhul0LWWt64"
+    api_key = ""
 
     # API parameters
     params = {
