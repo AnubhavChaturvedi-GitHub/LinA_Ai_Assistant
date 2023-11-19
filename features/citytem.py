@@ -4,7 +4,7 @@ from body.speak import speak
 
 # API endpoint and API key
 endpoint = "http://api.openweathermap.org/data/2.5/weather"
-api_key = "1be737aa91bc5e80430e62bea9db39a4"
+api_key = ""
 
 # location
 def temcity():
